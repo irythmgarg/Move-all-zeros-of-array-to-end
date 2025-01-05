@@ -1,0 +1,68 @@
+Problem Statement:
+Given an array nums, move all zeroes to the end of the array while maintaining the relative order of the non-zero elements. The operation must be done in-place with 
+𝑂
+(
+𝑛
+)
+O(n) time complexity.
+
+Example:
+Input: nums = [0, 1, 0, 3, 12]
+Output: [1, 3, 12, 0, 0]
+Approach:
+
+Use a two-pointer technique to overwrite non-zero elements to the start of the array.
+After placing all non-zero elements, fill the rest of the array with zeroes.
+Key Insight:
+
+The problem can be solved efficiently by keeping track of the position to place the next non-zero element using a pointer (j).
+Complexity:
+
+Time Complexity: 
+𝑂
+(
+𝑛
+)
+O(n), where 
+𝑛
+n is the size of the array, as each element is processed at most twice.
+Space Complexity: 
+𝑂
+(
+1
+)
+O(1), since the operation is done in-place.
+Edge Cases:
+
+Empty array: No operation needed.
+Array with no zeroes: Array remains unchanged.
+Array with all zeroes: All elements remain zero.
+
+Algorithm Explanation
+Initialization:
+
+Create a pointer j initialized to -1 to track the last position where a non-zero element was placed.
+Get the size of the array n.
+First Pass:
+
+Iterate through the array using an index i.
+For each element:
+If the element is non-zero, increment j and move the non-zero element to position j.
+Handle Edge Case:
+
+If j == -1 after the first pass, it means the array has no non-zero elements, so no further operation is needed.
+Second Pass:
+
+Start from j + 1 and fill all remaining positions in the array with zeroes.
+Output:
+
+The array is modified in-place such that all non-zero elements are shifted to the left, and all zeroes are moved to the right.
+Key Points
+The two-pass algorithm ensures all non-zero elements are shifted left in one pass, and zeroes are added in the second pass.
+Using 
+𝑂
+(
+1
+)
+O(1) additional space makes the algorithm efficient for large inputs.
+
