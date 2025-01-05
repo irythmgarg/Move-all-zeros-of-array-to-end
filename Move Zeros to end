@@ -1,0 +1,24 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int n = nums.size(); // Get the size of the array
+        int j = -1;          // Initialize pointer `j` to track the position for non-zero elements
+
+        // First pass: Move all non-zero elements to the beginning of the array
+        for (int i = 0; i < n; i++) {
+            if (nums[i] != 0) {   // Check if the current element is non-zero
+                j++;              // Increment pointer `j`
+                nums[j] = nums[i]; // Move the non-zero element to the position pointed by `j`
+            }
+        }
+
+        // If no non-zero elements were found, return as the array is all zeroes
+        if (j == -1)
+            return;
+
+        // Second pass: Fill the rest of the array with zeroes
+        for (int i = j + 1; i < n; i++) {
+            nums[i] = 0; // Fill positions after `j` with zeroes
+        }
+    }
+};
